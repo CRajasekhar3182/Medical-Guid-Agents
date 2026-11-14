@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MediGuide AI</title>
+  <link rel="stylesheet" href="/ui/style.css">
+  <!-- marked turns the answer's markdown (**bold**, lists) into HTML; DOMPurify removes anything unsafe -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+</head>
+<body>
+  <!-- Left side: upload PDFs -->
+  <aside class="sidebar">
+    <h1>🩺 MediGuide AI</h1>
+    <p class="muted">Ask questions about your medical PDFs. Every answer cites its source and page.</p>
+
+    <h2>Upload a PDF</h2>
+    <input type="file" id="pdf-input" accept=".pdf">
+    <button id="upload-button">Upload</button>
+    <p id="upload-status" class="muted"></p>
+
+    <p class="warning">⚠️ For educational use only. Not medical advice.</p>
+  </aside>
+
+  <!-- Right side: the chat -->
+  <main class="chat">
+    <div id="messages">
+      <div class="message assistant">
+        Hi! Upload a medical PDF on the left, then ask me anything about it.
+      </div>
+    </div>
+
+    <form id="question-form">
+      <input type="text" id="question-input" placeholder="e.g. What is the first-line treatment for type 2 diabetes?" autocomplete="off">
+      <button type="submit">Ask</button>
+    </form>
+  </main>
+
+  <script src="/ui/script.js"></script>
+</body>
+</html>
